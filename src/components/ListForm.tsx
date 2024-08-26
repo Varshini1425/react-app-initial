@@ -3,9 +3,10 @@ import { useState } from "react";
 interface Props {
   items: { id: number; country: string; code: string }[];
   heading: string;
+  onSelectedItem: (item: { id: number; country: string; code: string }) => void;
 }
 
-const ListForm = ({ items, heading }: Props) => {
+const ListForm = ({ items, heading, onSelectedItem }: Props) => {
   // countries = [];
 
   // event handler
@@ -13,11 +14,11 @@ const ListForm = ({ items, heading }: Props) => {
 
   /* HOOKS */
 
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(-1);
 
   const handleClick = (index: number) => {
     setSelectedIndex(index);
-    console.log(`Clicked: ${items[index].country} (Index ${index})`);
+    onSelectedItem(items[index]);
   };
 
   return (
