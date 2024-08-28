@@ -2,6 +2,7 @@ import ListForm from "./components/ListForm";
 import Button from "./components/Button";
 import Alert from "./components/Alert";
 import { useState } from "react";
+import UpdateObject from "./components/UpdateObject";
 const App = () => {
   interface Countries {
     id: number;
@@ -52,6 +53,8 @@ const App = () => {
           {` Selected Country:  ${selectedCountry.country} `}
         </Alert>
       )}
+
+      <UpdateObject />
     </div>
   );
 };
